@@ -10,6 +10,8 @@ gTTS = "^2.2.4"
 art = "^5.7"
 pdfplumber = "^0.7.5"
 pandas = "^1.5.1"
+rembg = "^2.0.25"
+opencv-python = "^4.6.0"
 
 [tool.poetry.dev-dependencies]
 
