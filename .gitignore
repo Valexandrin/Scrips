@@ -17,6 +17,7 @@ others/
 yandex/
 pandas_trials/
 xml_trials/
+images/
 
 # Distribution / packaging
 .Python
