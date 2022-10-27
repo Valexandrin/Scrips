@@ -6,6 +6,18 @@ __pycache__/
 # C extensions
 *.so
 
+# extensions
+*.mp3
+*.pdf
+*.csv
+
+# directories
+leetcode/
+others/
+yandex/
+pandas_trials/
+xml_trials/
+
 # Distribution / packaging
 .Python
 build/

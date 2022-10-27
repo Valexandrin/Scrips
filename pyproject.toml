@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "trials"
+version = "0.1.0"
+description = ""
+authors = ["Valexandrin <alex-vadim@mail.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+gTTS = "^2.2.4"
+art = "^5.7"
+pdfplumber = "^0.7.5"
+pandas = "^1.5.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
