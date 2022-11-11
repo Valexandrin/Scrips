@@ -10,6 +10,7 @@ __pycache__/
 *.mp3
 *.pdf
 *.csv
+*.xlsx
 
 # directories
 leetcode/
