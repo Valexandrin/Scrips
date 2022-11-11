@@ -12,6 +12,8 @@ pdfplumber = "^0.7.5"
 pandas = "^1.5.1"
 rembg = "^2.0.25"
 opencv-python = "^4.6.0"
+difPy = "^2.4.4"
+openpyxl = "^3.0.10"
 
 [tool.poetry.dev-dependencies]
 
