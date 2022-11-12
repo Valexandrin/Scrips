@@ -73,10 +73,11 @@ def write_resaults(search_resault: dict, file_name: str) -> None:
 
 
 def main():
-    path = get_path(r'C:\Users\alex-\OneDrive\Изображения\vadim\камера iphone\iCloud Photos')
-    search_resault = search_duplicates(path)
+    path = get_path(r'C:\Users\alex-\OneDrive\Изображения\vadim\Tel 2019')
+    path2 = get_path(r'C:\Users\alex-\OneDrive\Изображения\vadim\Tel 2020')
+    search_resault = search_duplicates(path, path2)
 
-    resault_file_name = 'duplicates.xlsx'
+    resault_file_name = 'find_image_duplicates/duplicates.xlsx'
     write_resaults(search_resault, resault_file_name)
 
 
