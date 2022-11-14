@@ -1,10 +1,10 @@
 import os
-
 from typing import List
+
 from openpyxl import load_workbook
+from openpyxl.cell.cell import Cell
 from openpyxl.styles import PatternFill
 from openpyxl.worksheet.worksheet import Worksheet
-from openpyxl.cell.cell import Cell
 
 
 def get_cells_by_poor_resolution(worksheet: Worksheet) -> List[Cell]:
