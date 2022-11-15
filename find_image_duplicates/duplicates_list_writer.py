@@ -16,7 +16,7 @@ def name_validation(file_name: str) -> str:
 
 def write_resaults(
         search_resault: dict,
-        file_name: str='find_image_duplicates/duplicates.xlsx',
+        file_name: str = 'find_image_duplicates/duplicates.xlsx',
     ) -> None:
 
     writer = Writer()
@@ -28,14 +28,15 @@ def write_resaults(
     writer.write_excel(headers, found_duplicates, valid_name)
 
 
-def search_duplicates(folder1: str, folder2: str=None) -> dict:
+def search_duplicates(folder1: str, folder2: str = None) -> dict:
     search = dif(folder1, folder2)
     return search.result
 
 
 def main():
     paths = [
-        r'C:\Users\alex-\OneDrive\Изображения\vadim',
+        r'C:\<folder1>',
+        r'C:\<folder2>',
     ]
 
     validated_paths = path_validation(paths)
