@@ -1,50 +1,44 @@
-import os.path
+from pathlib import Path
 from typing import List
 
 
-def get_path(raw_path: str) -> str:
-    return raw_path.replace('\\', '/')
-
-
-def is_different(ph1: str, ph2: str, pos: int=0):
-    ph1, ph2 = ph1.split('\\'), ph2.split('\\')
-
-    while pos < len(min(ph1, ph2)):
-        if ph1[pos] != ph2[pos]:
-            return True
-        pos += 1
-
-    return False
-
-
-def path_name_validation(paths: List[str]) -> None:
+def path_name_validation(paths: List[Path]) -> None:
+    if not paths:
+        raise ValueError('There are no valid directories to be processed')
     if len(paths) == 1:
         return
-    if len(paths) != 2:
-        raise ValueError
+    if len(paths) > 2:
+        raise ValueError('More than two directories cannot be processed')
     if len(set(paths)) == 1:
-        raise ValueError
-    if not is_different(*paths):
-        raise ValueError
+        raise ValueError('An attempt to compare the directory with itself')
+    if paths[0].is_relative_to(paths[1]) or paths[1].is_relative_to(paths[0]):
+        raise ValueError('One belongs to another')
 
 
-def path_validation(paths: List[str]) -> List[str]:
+def process_directory(paths: List[str] = []) -> List[Path]:
+    validated = []
+    for path in paths:
+        path = Path(path)
+        if not path.is_dir():
+            print(f'Directory "{path}" does not not exist')
+            return
+        validated.append(path)
+
+    return validated
+
+
+def path_validation(paths: List[str] = []) -> List[str]:
+    if paths:
+        paths = process_directory(paths)
     try:
         path_name_validation(paths)
-    except ValueError:
-        print('Not allowed path combination')
+    except ValueError as err:
+        print(*err.args)
         return
-
-    for path in paths:
-        if not os.path.isdir(path):
-            print(f'Path is not exist: {path}')
-            return
-
-    return [get_path(path) for path in paths]
 
 
 def main():
-    path_validation([])
+    path_validation()
 
 
 if __name__ == '__main__':
